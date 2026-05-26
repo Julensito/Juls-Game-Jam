@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juls Game Jam 2026</title>
+    <script>
+      // Silenciar errores inofensivos de desarrollo sobre la desconexión del WebSocket de Vite (HMR)
+      window.addEventListener('unhandledrejection', (event) => {
+        if (event.reason && (
+          String(event.reason.message || event.reason).includes('WebSocket') ||
+          String(event.reason.message || event.reason).includes('HMR')
+        )) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

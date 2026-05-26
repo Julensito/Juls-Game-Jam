@@ -1,0 +1,6 @@
+{
+  "name": "Game Jam Submission & Voting Portal",
+  "description": "Una plataforma integral para registrar equipos, enviar proyectos de videojuegos (con enlaces de Itch.io, trailers de YouTube y documentos de diseño de juego - GDD) y calificar las entregas de los participantes según diversos criterios en una interfaz oscura, minimalista y fluida.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
