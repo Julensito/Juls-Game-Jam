@@ -388,10 +388,16 @@ export default function ProjectListTab({ projects, criterias, onVoteSuccess }: P
                     <div className="w-full aspect-video rounded-xl bg-zinc-900/60 border border-white/5 flex flex-col items-center justify-center p-6 text-center space-y-3">
                       <Play size={36} className="text-zinc-600" />
                       <div>
-                        <p className="text-xs text-zinc-400">Tráiler no disponible de forma integrada.</p>
-                        <a href={activeProject.youtubeUrl} target="_blank" rel="noreferrer" className="text-xs text-indigo-400 underline hover:text-indigo-300 inline-flex items-center gap-1 mt-1 font-mono">
-                          Abrir enlace externo de trailer <ExternalLink size={10} />
-                        </a>
+                        {activeProject.youtubeUrl?.trim() ? (
+                          <>
+                            <p className="text-xs text-zinc-400">Tráiler no disponible de forma integrada o enlace no válido.</p>
+                            <a href={activeProject.youtubeUrl} target="_blank" rel="noreferrer" className="text-xs text-indigo-400 underline hover:text-indigo-300 inline-flex items-center gap-1 mt-1 font-mono">
+                              Abrir enlace externo de trailer <ExternalLink size={10} />
+                            </a>
+                          </>
+                        ) : (
+                          <p className="text-xs text-zinc-400">No se ha proporcionado ningún tráiler de YouTube para este videojuego.</p>
+                        )}
                       </div>
                     </div>
                   )}

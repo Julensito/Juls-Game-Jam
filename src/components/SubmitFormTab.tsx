@@ -86,8 +86,8 @@ export default function SubmitFormTab({ onSuccess }: SubmitFormTabProps) {
     if (!itchUrl.toLowerCase().includes('itch.io')) {
       return "El enlace de Itch.io debe ser una URL válida que contenga 'itch.io'";
     }
-    // Check if youtube link has youtube/youtu.be
-    if (!youtubeUrl.toLowerCase().includes('youtube.com') && !youtubeUrl.toLowerCase().includes('youtu.be')) {
+    // Check if youtube link has youtube/youtu.be only if provided
+    if (youtubeUrl.trim() && !youtubeUrl.toLowerCase().includes('youtube.com') && !youtubeUrl.toLowerCase().includes('youtu.be')) {
       return "El enlace del Tráiler debe pertenecer a YouTube ('youtube.com' o 'youtu.be')";
     }
     return null;
@@ -106,8 +106,8 @@ export default function SubmitFormTab({ onSuccess }: SubmitFormTabProps) {
       setErrorMsg("El título del juego es obligatorio.");
       return;
     }
-    if (!itchUrl.trim() || !youtubeUrl.trim() || !gddUrl.trim()) {
-      setErrorMsg("Todos los enlaces (Itch.io, Tráiler YouTube y Documento GDD) son obligatorios.");
+    if (!itchUrl.trim() || !gddUrl.trim()) {
+      setErrorMsg("Los enlaces de Itch.io y del Documento GDD son obligatorios.");
       return;
     }
     if (description.trim().length < 20) {
@@ -420,7 +420,7 @@ export default function SubmitFormTab({ onSuccess }: SubmitFormTabProps) {
 
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5" htmlFor="youtubeUrl">
-                  Enlace de Tráiler (YouTube) *
+                  Enlace de Tráiler (YouTube - Opcional)
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-600">
@@ -429,7 +429,6 @@ export default function SubmitFormTab({ onSuccess }: SubmitFormTabProps) {
                   <input
                     id="youtubeUrl"
                     type="url"
-                    required
                     placeholder="https://www.youtube.com/watch?v=..."
                     value={youtubeUrl}
                     onChange={(e) => setYoutubeUrl(e.target.value)}
