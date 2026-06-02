@@ -28,7 +28,7 @@ const JAM_INFO = {
     "Solo se permite utilizar el motor de videojuegos Unity.",
     "Los assets de terceros (gráficos y sonido) deben estar declarados en los créditos, respetando sus licencias.",
     "El tamaño del equipo es indiferente.",
-    "Se debe entregar un enlace de Itch.io público (jugable en navegador o descargable), un tráiler en YouTube (máx 2 minutos) y el Documento de Diseño de Juego (GDD)."
+    "Se debe entregar un enlace de Itch.io público (jugable en navegador o descargable) y el Documento de Diseño de Juego (GDD). El tráiler de YouTube es opcional."
   ],
   criteria: [
     { name: "Jugabilidad (Gameplay)", key: "gameplay", description: "Mecánicas, fluidez, controles, sistema de juego y la experiencia de diversión general." },
@@ -91,8 +91,8 @@ app.post('/api/projects', (req, res) => {
     const { teamName, teamMembers, gameTitle, description, itchUrl, youtubeUrl, gddUrl, genre, platform } = req.body;
 
     // Validation
-    if (!teamName?.trim() || !gameTitle?.trim() || !itchUrl?.trim() || !youtubeUrl?.trim() || !gddUrl?.trim()) {
-      return res.status(400).json({ error: "Faltan campos obligatorios. Asegúrate de rellenar el Nombre del Equipo, Título del Juego, Enlace de Itch.io, Tráiler de YouTube y Enlace del GDD." });
+    if (!teamName?.trim() || !gameTitle?.trim() || !itchUrl?.trim() || !gddUrl?.trim()) {
+      return res.status(400).json({ error: "Faltan campos obligatorios. Asegúrate de rellenar el Nombre del Equipo, Título del Juego, Enlace de Itch.io y Enlace del GDD." });
     }
 
     const projects = getProjects();
@@ -105,7 +105,7 @@ app.post('/api/projects', (req, res) => {
       gameTitle: gameTitle.trim(),
       description: description?.trim() || "Sin descripción proporcionada.",
       itchUrl: itchUrl.trim(),
-      youtubeUrl: youtubeUrl.trim(),
+      youtubeUrl: youtubeUrl?.trim() || "",
       gddUrl: gddUrl.trim(),
       genre: genre?.trim() || "Otros / General",
       platform: platform?.trim() || "PC / Navegador",
