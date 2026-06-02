@@ -36,7 +36,7 @@ const FALLBACK_JAM_INFO: GameJamInfo = {
     "Solo se permite utilizar el motor de videojuegos Unity.",
     "Los assets de terceros (gráficos y sonido) deben estar declarados en los créditos, respetando sus licencias.",
     "El tamaño del equipo es indiferente.",
-    "Se debe entregar un enlace de Itch.io público (jugable en navegador o descargable), un tráiler en YouTube (máx 2 minutos) y el Documento de Diseño de Juego (GDD)."
+    "Se debe entregar un enlace de Itch.io público (jugable en navegador o descargable) y el Documento de Diseño de Juego (GDD). El tráiler de YouTube es opcional."
   ],
   criteria: [
     { name: "Jugabilidad (Gameplay)", key: "gameplay", description: "Mecánicas, fluidez, controles, sistema de juego y la experiencia de diversión general." },
